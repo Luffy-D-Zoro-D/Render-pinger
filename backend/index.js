@@ -170,6 +170,7 @@ db.connectToDatabase().then(async (connected) => {
   setTimeout(() => {
     console.log('🕒 5 minutes elapsed — shutting down gracefully...');
     process.exit(0);
-  }, 5000);
+  }, 20000);
   } )
 });
+
