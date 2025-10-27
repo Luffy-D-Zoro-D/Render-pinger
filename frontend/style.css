@@ -1,0 +1,359 @@
+:root {
+  --primary-color: #4361ee;
+  --success-color: #06d6a0;
+  --danger-color: #ef476f;
+  --warning-color: #ffd166;
+  --dark-color: #1e293b;
+  --light-color: #f8fafc;
+  --gray-color: #94a3b8;
+}
+
+body { 
+  background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--dark-color);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.status-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  border: none;
+}
+
+.status-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.card-header {
+  padding: 1rem 1.25rem;
+  background: linear-gradient(to right, var(--primary-color), #3a56d4);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.status-up {
+  background-color: rgba(6, 214, 160, 0.15);
+  color: var(--success-color);
+}
+
+.status-down {
+  background-color: rgba(239, 71, 111, 0.15);
+  color: var(--danger-color);
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.metric-label {
+  color: var(--gray-color);
+}
+
+.metric-value {
+  font-weight: 500;
+}
+
+.uptime-high { color: var(--success-color); }
+.uptime-medium { color: var(--warning-color); }
+.uptime-low { color: var(--danger-color); }
+
+.last-checked {
+  font-weight: 600;
+}
+
+.response-time {
+  font-weight: 600;
+}
+
+/* Settings Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: 20px;
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.modal-subtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.close-button {
+  color: #94a3b8;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.close-button:hover {
+  color: #64748b;
+  background-color: #f1f5f9;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4361ee;
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #4361ee;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #3a56d4;
+}
+
+.btn-danger {
+  background-color: #ef476f;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #d2365e;
+}
+
+.btn-success {
+  background-color: #06d6a0;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #05b88b;
+}
+
+.btn-sm {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.url-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.url-text {
+  flex: 1;
+  font-size: 0.875rem;
+  word-break: break-all;
+  padding-right: 0.5rem;
+}
+
+.url-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background-color: rgba(67, 97, 238, 0.1);
+  color: #4361ee;
+}
+
+.status-badge.inactive {
+  background-color: rgba(239, 71, 111, 0.1);
+  color: #ef476f;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-label {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.settings-description {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.toggle-container {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle-input:checked + .toggle-slider {
+  background-color: #4361ee;
+}
+
+.toggle-input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}

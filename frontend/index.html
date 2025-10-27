@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Render Pinger Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="dashboard-header mb-0">Render Pinger Dashboard</h1>
+      <button class="btn btn-primary" onclick="openSettings()">Settings</button>
+    </div>
+    
+    <div id="cards" class="card-container"></div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title">Settings</h2>
+          <p class="modal-subtitle">Manage URLs to monitor</p>
+        </div>
+        <button class="close-button" onclick="closeSettings()">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="settings-row">
+          <div>
+            <h3 class="settings-label">Ping Service</h3>
+            <p class="settings-description">Enable or disable automatic pinging</p>
+          </div>
+          <div>
+            <span id="ping-status" class="status-badge inactive">Inactive</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ping Interval (minutes)</label>
+          <div class="form-row">
+            <input id="interval-input" type="number" min="1" class="form-control" style="flex: 1;">
+            <button onclick="updateInterval()" class="btn btn-primary">Update</button>
+          </div>
+          <p class="settings-description mt-2">Current: Every <span id="current-interval">10</span> minutes</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Manage URLs</label>
+          <div class="form-row">
+            <input id="url-input" type="text" placeholder="https://myapp.onrender.com" class="form-control" style="flex: 1;">
+            <button onclick="addUrl()" class="btn btn-primary">Add</button>
+          </div>
+        </div>
+
+        <div id="url-list" class="mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
