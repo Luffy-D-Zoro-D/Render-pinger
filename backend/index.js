@@ -164,5 +164,12 @@ db.connectToDatabase().then(async (connected) => {
   initializeUrlStatuses();
   startPinging();
   
-  app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+  app.listen(PORT, () =>{
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    // Shut down after 5 minutes (300,000 ms)
+  setTimeout(() => {
+    console.log('🕒 5 minutes elapsed — shutting down gracefully...');
+    process.exit(0);
+  }, 5000);
+  } )
 });
